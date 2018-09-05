@@ -1,0 +1,197 @@
+<!DOCTYPE html>  
+<html>  
+   <head>  
+      <title>Angular Technical Test</title>  
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>  
+      html{
+          background-image:url(https://cdn.wallpapersafari.com/3/69/Uvjcom.jpg);
+      }   
+      * {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}    
+ .active {
+    background-color: #4CAF50;
+}
+         h1{ 
+            margin-left: 33%;
+         }
+         h2{
+             margin-right: 20%;
+         }
+         table, th , td {  
+            border: 1px solid grey;  
+            border-collapse: collapse;  
+            padding: 5px; 
+            margin-left: 35%;
+         }  
+           
+         table tr:nth-child(odd) {  
+            background-color: #f2f2f2;  
+         }  
+           
+         table tr:nth-child(even) {  
+            background-color: #ffffff;  
+         }  
+      </style>  
+   </head>  
+   <body>  
+       <div class ng-app = "mainApp" ng-controller = "technicaltest">  
+          <h4 style="color:red">Form ID:  {{student.formId}}<br>Last Changed Date: {{student.lastchangedDate}}
+          <br>Last Changed By:  {{student.lastchangedBy}}</br>
+          </h4>
+       
+       <div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="Contact.html">Contact</a>
+  <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+ <h1 style="color: green">Angular Technical Test Application</h1> 
+          
+            
+         <table border = "0">  
+            <tr>  
+               <td>User ID:</td>  
+               <td> {{student.userId}}</td>  
+            </tr> 
+             <tr>  
+               <td>Form ID:</td>  
+               <td> {{student.formId}}</td>  
+            </tr>  
+             <tr>  
+               <td> ID:</td>  
+               <td ng-repeat="subject in student.form"> {{subject.id}}</td>  
+            </tr> 
+             <tr>  
+               <td>Caption:</td>  
+               <td ng-repeat="subject in student.form"> {{subject.caption}}</td>  
+            </tr> 
+             <tr>  
+               <td>Type:</td>  
+               <td ng-repeat="subject in student.form"> {{subject.type}}</td>  
+            </tr> 
+            <tr>  
+               <td>Last Changed Date: </td>  
+               <td>  
+                 {{student.lastchangedDate}} 
+               </td>  
+            </tr>  
+            <tr>  
+               <td>Last Changed By</td>  
+               <td>{{student.lastchangedBy}}</td>  
+            </tr>  
+            
+                  </table>  
+            
+         <h1 style="margin-left: 45%">OR</h1>
+         <h3 style="margin-left: 10%">     {{student}}</h3>
+      </div>  
+   
+
+     
+      <script>  
+         var mainApp = angular.module("mainApp", []);  
+           
+         mainApp.controller('technicaltest', function($scope) {  
+            $scope.student = {  
+               userId: 123,  
+               formId: "VC01",  
+                 
+                 
+               form:[  
+                  {id:'F01',caption:"Sighting", type:"date"}
+                    
+               ],  
+               lastchangedDate:"27-10-30T17:23:43:+00:00",
+               lastchangedBy:"Paddy",
+                 
+               fullName: function() {  
+                  var studentObject;  
+                  studentObject = $scope.student;  
+                  return studentObject.firstName + " " + studentObject.lastName;  
+               }  
+            };  
+         });  
+      </script>  
+   </body>  
+</html>  
+
+ 
